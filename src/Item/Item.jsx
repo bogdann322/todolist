@@ -6,7 +6,7 @@ import edit from '../img/edit.png'
 import accept from '../img/accept.png'
 
 
-export default function Item({item, handleDelete, handleChangeText, handleSave}) {
+const Item = ({item, handleDelete, handleChangeText, handleSave}) => {
 
   const { id, text, editMode} = item
 
@@ -25,3 +25,5 @@ export default function Item({item, handleDelete, handleChangeText, handleSave})
     </div>
   )
 }
+
+export default Item

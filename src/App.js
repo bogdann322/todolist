@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import './App.css'
 import Item from './Item/Item'
 
@@ -64,15 +65,22 @@ function App() {
 				onChange={(e) => setInput(e.target.value)}
 			/>
 			<button className='btn' onClick={() => handleClick()}>Add</button>
-			{data.map((item) => (
-				<Item
-					item={item}
-					key={item.id}
-					handleDelete={handleDelete}
-					handleChangeText={handleChangeText}
-          handleSave={handleSave}
-				/>
-			))}
+			<TransitionGroup>
+				{data.map((item) => (
+					<CSSTransition 
+					key={item.id} 
+					timeout={500}
+					classNames='animation'
+					>
+						<Item
+							item={item}
+							handleDelete={handleDelete}
+							handleChangeText={handleChangeText}
+							handleSave={handleSave}
+						/>
+					</CSSTransition>
+				))}
+			</TransitionGroup>
 		</div>
 	)
 }
