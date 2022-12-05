@@ -1,0 +1,34 @@
+.item{
+    display: flex;
+    max-width: 800px;
+    margin: 10px auto;
+    background: white;
+    color: black;
+    justify-content: space-between;
+    border: 1px solid black;
+    padding: 10px 50px;
+    border-radius:10px;
+}
+
+.title{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.input{
+    font-size: 20px;
+    font-weight: bold;
+    border:none;
+}
+
+.itemBtns{
+    display: flex;
+}
+
+.itemBtn{
+    margin-left: 10px;
+    
+}
+.itemBtn img {
+    vertical-align: middle;
+}
