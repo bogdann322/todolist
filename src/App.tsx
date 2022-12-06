@@ -3,13 +3,18 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import './App.css'
 import Item from './Item/Item'
 
-function App() {
+export interface Data {
+	id:number;
+	text:string;
+	editMode: boolean;
+}
 
-	const [data, setData] = useState([
+function App() {
+	const [data, setData] = useState<Data[]>([
 		{ id: 1, text: 'End this project', editMode: false},
 		{ id: 2, text: 'Wash the car', editMode: false},
 		{ id: 3, text: 'Go to the gym', editMode: false},
-    { id: 4, text: 'Buy some foods', editMode: false},
+    	{ id: 4, text: 'Buy some foods', editMode: false},
 		{ id: 5, text: 'Go to the gym', editMode: false}
 	])
 
@@ -20,12 +25,12 @@ function App() {
 		setInput('')
 	}
 
-	const handleDelete = (id) => {
+	const handleDelete = (id:number) => {
 		const newList = data.filter((item) => id !== item.id)
 		setData(newList)
 	}
 
-	const handleChangeText = (id) => {
+	const handleChangeText = (id:number) => {
     const newList = data.map((item) => {
       if (item.id === id) {
         const updatedItem = {
@@ -39,7 +44,7 @@ function App() {
     setData(newList);
 	}
 
-  const handleSave = (id, input) => {
+  const handleSave = (id:number, input:string) => {
 		const newList = data.map((item) => {
       if (item.id === id) {
         const updatedItem = {
@@ -58,7 +63,7 @@ function App() {
 		<div className='App'>
 			<h1 className='title'>Todolist</h1>
 			<input
-      className='input'
+      			className='input'
 				type='text'
 				placeholder='What to do?'
 				value={input}
